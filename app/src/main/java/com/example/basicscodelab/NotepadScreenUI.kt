@@ -50,6 +50,7 @@ object NotepadScreenUI {
                         // Navigate to the 'detail_screen' route
                         navController.navigate("home_screen")
                     },
+                    colors = ButtonColors(Color(0xFF1E88E5), Color.White, Color(0xFF1E88E5), Color.White),
                     contentPadding = PaddingValues(2.dp)
                 ) {
                     Text("Go to Home Screen")
@@ -84,7 +85,7 @@ object NotepadScreenUI {
                     viewModel.saveText()
                 },
                 modifier = Modifier.padding(16.dp, 4.dp),
-                colors = ButtonColors(Color.Magenta, Color.Black, Color.Magenta, Color.Black),
+                colors = ButtonColors(Color(0xFF1E88E5), Color.White, Color(0xFF1E88E5), Color.White),
                 contentPadding = PaddingValues(horizontal = 20.dp, vertical = 4.dp)
             ) {
                 Text("Save Note")
@@ -165,7 +166,9 @@ fun StyleControls(
         horizontalArrangement = Arrangement.SpaceEvenly
     ) {
         // Bold Button
-        Button(onClick = { onStyleAction(FontStyleAction.ToggleBold(currentSelection)) }) {
+        Button(onClick = { onStyleAction(FontStyleAction.ToggleBold(currentSelection)) },
+            colors = ButtonColors(Color(0xFF1E88E5), Color.White, Color(0xFF1E88E5), Color.White),
+        ) {
             Text(
                 "Bold",
                 fontWeight = FontWeight.Bold,
@@ -175,7 +178,9 @@ fun StyleControls(
         }
 
         // Italic Button
-        Button(onClick = { onStyleAction(FontStyleAction.ToggleItalic(currentSelection)) }) {
+        Button(onClick = { onStyleAction(FontStyleAction.ToggleItalic(currentSelection)) },
+            colors = ButtonColors(Color(0xFF1E88E5), Color.White, Color(0xFF1E88E5), Color.White),
+        ) {
             Text(
                 "Italic",
                 fontStyle = FontStyle.Italic,
@@ -183,10 +188,15 @@ fun StyleControls(
                 color = Color.White
             )
         }
-        Button(onClick = { onStyleAction(FontStyleAction.ChangeSize(currentSelection, DEFAULT_FONT_SIZE_SP.value+4f))}) {
+        Button(
+            onClick = { onStyleAction(FontStyleAction.ChangeSize(currentSelection, DEFAULT_FONT_SIZE_SP.value+4f))},
+            colors = ButtonColors(Color(0xFF1E88E5), Color.White, Color(0xFF1E88E5), Color.White),
+            ) {
             Text("Size +")
         }
-        Button(onClick = { onStyleAction(FontStyleAction.ChangeSize(currentSelection, DEFAULT_FONT_SIZE_SP.value-4f))}) {
+        Button(onClick = { onStyleAction(FontStyleAction.ChangeSize(currentSelection, DEFAULT_FONT_SIZE_SP.value-4f))},
+            colors = ButtonColors(Color(0xFF1E88E5), Color.White, Color(0xFF1E88E5), Color.White),
+        ) {
             Text("Size -")
         }
     }
